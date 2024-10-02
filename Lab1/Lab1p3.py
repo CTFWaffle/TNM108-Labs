@@ -1,7 +1,7 @@
 from sklearn.datasets import load_breast_cancer
 cancer = load_breast_cancer()
 
-print(cancer.DESCR)
+#print(cancer.DESCR)
 print(len(cancer.data[cancer.target==1]))
 
 import numpy as np
@@ -25,7 +25,6 @@ plt.show()
 
 
 
-
 import pandas as pd
 cancer_df=pd.DataFrame(cancer.data,columns=cancer.feature_names)# just convert the scikit learn data-set to pandas data-frame.
 plt.subplot(1,2,1)#fisrt plot
@@ -41,6 +40,7 @@ plt.tight_layout()
 plt.show()
 
 
+
 from sklearn.preprocessing import StandardScaler
 scaler=StandardScaler()#instantiate
 scaler.fit(cancer.data) # compute the mean and standard which will be used in the next command
@@ -52,6 +52,7 @@ print("after scaling minimum", X_scaled.min(axis=0))
 
 
 from sklearn.decomposition import PCA
+#pca=PCA(n_components=2)
 pca=PCA(n_components=3)
 pca.fit(X_scaled)
 X_pca=pca.transform(X_scaled)
@@ -66,11 +67,14 @@ print(ex_variance_ratio)
 
 
 
-
-# Xax=X_pca[:,0]
-# Yax=X_pca[:,1]
+#n_components = 2
 Xax=X_pca[:,0]
-Yax=X_pca[:,2]
+Yax=X_pca[:,1]
+
+#n_components = 3
+#Xax=X_pca[:,0]
+#Yax=X_pca[:,2]
+
 labels=cancer.target
 cdict={0:'red',1:'green'}
 labl={0:'Malignant',1:'Benign'}
