@@ -7,11 +7,13 @@ among the data?
 5. Can overfitting be a problem? And if so, what can you do about it?
 
 Answers for Part1:
-1. 
-2. 
+1. When you want to see linear relations between datasets.
+2. By adding in a pipeline, more complex relationships among the data can more easily be 
+accounted for by allowing higher dimensionality.
 3. 
 4. 
-5. 
+5. By implementing some form of regularization you can minimize overfitting, there are many 
+regularization methods: Ridge and Lasso are mentioned in the lab for example.
 
 Questions for Part2:
 1. Why choosing a good value for k is important in KNN?
