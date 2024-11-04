@@ -10,10 +10,12 @@ Answers for Part1:
 1. When you want to see linear relations between datasets.
 2. By adding in a pipeline, more complex relationships among the data can more easily be 
 accounted for by allowing higher dimensionality.
-3. 
-4. 
+3. They're the mathematical models that can best be fitted to our data or describe it.
+4. Several basis functions can be used to describe a more complex function, resulting in one either
+very complex function or somewhat simple. There is no theoretical limit but rather a technical one.
 5. By implementing some form of regularization you can minimize overfitting, there are many 
-regularization methods: Ridge and Lasso are mentioned in the lab for example.
+regularization methods: Ridge and Lasso are mentioned in the lab for example. Simplifying the 
+model by making them more generalized, making some datapoints more and less important.
 
 Questions for Part2:
 1. Why choosing a good value for k is important in KNN?
@@ -24,11 +26,26 @@ Questions for Part2:
 6. What are the Pros and Cons of KNN?
 
 Answers for Part2:
-1. 
-2. 
-3. 
-4. 
-5. 
+1. A high value of K will result in overfitting, while a low value of K will only
+represent the noise. You want a relatively smooth decision-boundary.
+2. Avoid using a K that is equal to a multiple of the number of classes. Or use the Elbow method, using 
+the breakingpoint between error and false-positive.
+3. YES! The datasets don't need to be linearly related.
+4. For an increasing amount of features KNN will require more data, different features may also
+require different weights to scale the different data points for equal treatment.
+5. You need different classes for KNN to be useful, so for regression problems it won't necessarily be
+applicable.
+6. 
+Pros: 
+-Easily applicable
+-Much faster in the general case
+-Low amount of Hyperparameters
+-Easily evaluated.
+Cons: 
+-Requires the whole dataset
+-Needs large number of samples for accuracy 
+-More features requires more data
+-Due to low amount of hyperparameters, K is HYPER sensitive.
 
 Questions for Part3:
 1. What is the basic idea/intuition of SVM?

@@ -40,7 +40,7 @@ model.fit(X, Y) # Fit the model
 from sklearn.preprocessing import PolynomialFeatures
 x = np.array([2, 3, 4]) # 3 numbers
 poly = PolynomialFeatures(3, include_bias=False) # 3rd degree polynomial
-#print(poly.fit_transform(x[:, None])) # x, x^2, x^3
+print(poly.fit_transform(x[:, None])) # x, x^2, x^3
 
 # Polynomial Regression with Pipeline (Allowing for more complex relationships between x and y)
 from sklearn.pipeline import make_pipeline
@@ -126,14 +126,14 @@ model = make_pipeline(GaussianFeatures(30), Ridge(alpha=0.1)) # alpha is the reg
 basis_plot(model, title='Ridge Regression with alpha=0.1')
 
 # Ridge Regression with varied alpha values
-'''
+
 model = make_pipeline(GaussianFeatures(30), Ridge(alpha=0.001))
 basis_plot(model, title='Ridge Regression with alpha=0.001')
 model = make_pipeline(GaussianFeatures(30), Ridge(alpha=0.5))
 basis_plot(model, title='Ridge Regression with alpha=0.5')
 model = make_pipeline(GaussianFeatures(30), Ridge(alpha=0.9))
 basis_plot(model, title='Ridge Regression with alpha=0.9')
-'''
+
 # Conclusion for Ridge Regression with varied alpha values
 #High alpha values result in more regularization (less overfitting)
 #Low alpha values result in less regularization (more overfitting)
@@ -146,14 +146,14 @@ model = make_pipeline(GaussianFeatures(30), Lasso(alpha=0.001)) # alpha is still
 basis_plot(model, title='Lasso Regression')
 
 # Lasso Regression with varied alpha values
-'''
+
 model = make_pipeline(GaussianFeatures(30), Lasso(alpha=0.01))
 basis_plot(model, title='Lasso Regression with alpha=0.01')
 model = make_pipeline(GaussianFeatures(30), Lasso(alpha=0.005))
 basis_plot(model, title='Lasso Regression with alpha=0.005')
 model = make_pipeline(GaussianFeatures(30), Lasso(alpha=0.009))
 basis_plot(model, title='Lasso Regression with alpha=0.009')
-'''
+
 # Conclusion for Lasso Regression with varied alpha values
 # Just like Ridge Regression, high alpha values result in more regularization (less overfitting) and so on
 # Lasso Regression is much more sensitive to alpha values than Ridge Regression, needing far smaller alpha values.
