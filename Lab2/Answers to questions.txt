@@ -54,8 +54,17 @@ Questions for Part3:
 4. What are the pros and cons of SVM?
 
 Answers for Part3
-1. 
-2. 
-3. 
+1. Drawing a "line" to separate different features.
+2. You can project to a higher dimension where the linear seperability is more apparent.
+3. You allow some points to pass over the support vectors, within the margin.
 4. 
-5. 
+Pros: 
+- Works really well with clear margins.
+- Effective with high dimensionanlity.
+- Many use cases for different types of data.
+- Works for non-linear boundaries.
+Cons:
+- Performs badly with large data.
+- Doesn't perform well with large amounts of noise.
+- No built-in probability estimates.
+- C is a manually tweaked hyperparameter
