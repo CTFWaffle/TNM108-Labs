@@ -4,6 +4,7 @@ import numpy as np
 
 from sklearn.datasets import fetch_olivetti_faces
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.linear_model import LinearRegression, RidgeCV
 from sklearn.neighbors import KNeighborsRegressor
@@ -31,8 +32,15 @@ y_test = test[:, n_pixels // 2 :]
 
 # Fit estimators
 ESTIMATORS = {
-    "Forest(Random)": RandomForestRegressor(
+    "RDT(10 50)": DecisionTreeRegressor(max_depth=10, max_features=50 ,random_state=0),
+    "RDT(20 50)": DecisionTreeRegressor(max_depth=20, max_features=50 ,random_state=0),
+    "RDT(20 25)": DecisionTreeRegressor(max_depth=20, max_features=25 ,random_state=0),
+    "RF(10 50)": RandomForestRegressor(
         n_estimators=10, max_depth=10, max_features=50, random_state=0),
+    "RF(20 50)": RandomForestRegressor(
+        n_estimators=10, max_depth=20, max_features=50, random_state=0),
+    "RF(20 25)": RandomForestRegressor(
+        n_estimators=10, max_depth=20, max_features=25, random_state=0),
     "Extra trees": ExtraTreesRegressor(
         n_estimators=10, max_depth=20, max_features=25, random_state=0
     ),

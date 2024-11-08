@@ -34,19 +34,7 @@ using a predetermined assumption.
 the recreation of faces.
 2. Of all the provided methods Extra trees seems to provide the most
 accurate results with good image-quality and low noise.
-3. 
-    a.b.c. 
-    - max depth: provides sharpness to the image, 
-    the minor details and artifact count is better and lower respectively.
-    - max number of features: Accuracy the prediction,
-    the predicted facial expression and structure gets better.
-    d.e.f.
-    - max depth: provided more realism here,
-    for certain faces features appeared almost drawn on. While others
-    could be hard to distinguish from generated and true.
-    - max number of features: for an increased amount of features,
-    the accuracy of predicted facial expression and structure got noticieably
-    better.
+3. Look at picture BIG DIFF
 4. Implementation of Haar-like feature detection
 could improve the results of random forest by making
 the recreation more accurate thanks to the improved feature detection.
@@ -122,5 +110,53 @@ K-Nearest Neighbors regression
 mean R2: 0.51 (+/- 0.23)
 MSE: 40.22
 
-2. 
+2. RFE with/out Shuffle
+Unshuffled:
+Linear Regression with RFE
+mean R2: 0.25 (+/- 1.07)
+MSE: 31.48
+
+Ridge Regression with RFE
+mean R2: 0.26 (+/- 1.08)
+MSE: 31.04
+
+Lasso Regression with RFE
+mean R2: 0.18 (+/- 1.33)
+MSE: 31.74
+
+Decision Tree regression with RFE
+mean R2: -0.04 (+/- 1.87)
+MSE: 33.13
+
+Random Forest regression with RFE
+mean R2: 0.41 (+/- 1.00)
+MSE: 21.67
+
+Linear Support Vector Machine regression with RFE
+mean R2: 0.23 (+/- 1.30)
+MSE: 31.73
+
+Linear Regression with RFE
+mean R2: 0.69 (+/- 0.23)
+MSE: 25.27
+
+Ridge Regression with RFE
+mean R2: 0.69 (+/- 0.24)
+MSE: 25.39
+
+Lasso Regression with RFE
+mean R2: 0.67 (+/- 0.25)
+MSE: 26.50
+
+Decision Tree regression with RFE
+mean R2: 0.67 (+/- 0.36)
+MSE: 26.96
+
+Random Forest regression with RFE
+mean R2: 0.81 (+/- 0.23)
+MSE: 15.37
+
+Linear Support Vector Machine regression with RFE
+mean R2: 0.68 (+/- 0.25)
+MSE: 26.53
 3. 

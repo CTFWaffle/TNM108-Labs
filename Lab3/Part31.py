@@ -30,6 +30,7 @@ X = X[indices]
 Y = Y[indices]
 '''
 
+
 print("\nLinear Regression")
 lin = LinearRegression()
 score = cross_val_score(lin, X, Y, cv=cv)
@@ -89,9 +90,52 @@ print("MSE: %0.2f" % mean_squared_error(Y, predicted))
 
 # RFE
 from sklearn.feature_selection import RFE
-beast_features = 4
-rfe_lin = RFE(lin,beast_features).fit(X,Y)
-supported_features= rfe_lin.get_support(indices=True)
+best_features=4
 
-for i in supported_features:
-    print("Feature %d is selected" % i)
+print("\nLinear Regression with RFE")
+rfe_lin = RFE(lin,step=best_features).fit(X, Y)
+mask = np.array(rfe_lin.support_)
+score = cross_val_score(lin, X[:, mask], Y, cv=cv)
+print("mean R2: %0.2f (+/- %0.2f)" % (score.mean(), score.std() * 2))
+predicted = cross_val_predict(lin, X[:, mask], Y, cv=cv)
+print("MSE: %0.2f" % mean_squared_error(Y, predicted))
+
+print("\nRidge Regression with RFE")
+rfe_ridge = RFE(ridge,step=best_features).fit(X, Y)
+mask = np.array(rfe_ridge.support_)
+score = cross_val_score(ridge, X[:, mask], Y, cv=cv)
+print("mean R2: %0.2f (+/- %0.2f)" % (score.mean(), score.std() * 2))
+predicted = cross_val_predict(ridge, X[:, mask], Y, cv=cv)
+print("MSE: %0.2f" % mean_squared_error(Y, predicted))
+
+print("\nLasso Regression with RFE")
+rfe_lasso = RFE(lasso,step=best_features).fit(X, Y)
+mask = np.array(rfe_lasso.support_)
+score = cross_val_score(lasso, X[:, mask], Y, cv=cv)
+print("mean R2: %0.2f (+/- %0.2f)" % (score.mean(), score.std() * 2))
+predicted = cross_val_predict(lasso, X[:, mask], Y, cv=cv)
+print("MSE: %0.2f" % mean_squared_error(Y, predicted))
+
+print("\nDecision Tree regression with RFE")
+rfe_tree = RFE(tree, step=best_features).fit(X, Y)
+mask = np.array(rfe_tree.support_)
+score = cross_val_score(tree, X[:, mask], Y, cv=cv)
+print("mean R2: %0.2f (+/- %0.2f)" % (score.mean(), score.std() * 2))
+predicted = cross_val_predict(tree, X[:, mask], Y, cv=cv)
+print("MSE: %0.2f" % mean_squared_error(Y, predicted))
+
+print("\nRandom Forest regression with RFE")
+rfe_forest = RFE(forest, step=best_features).fit(X, Y)  
+mask = np.array(rfe_forest.support_)
+score = cross_val_score(forest, X[:, mask], Y, cv=cv)
+print("mean R2: %0.2f (+/- %0.2f)" % (score.mean(), score.std() * 2))
+predicted = cross_val_predict(forest, X[:, mask], Y, cv=cv)
+print("MSE: %0.2f" % mean_squared_error(Y, predicted))
+
+print("\nLinear Support Vector Machine regression with RFE")
+rfe_svm_lin = RFE(svm_lin, step=best_features).fit(X, Y)
+mask = np.array(rfe_svm_lin.support_)
+score = cross_val_score(svm_lin, X[:, mask], Y, cv=cv)
+print("mean R2: %0.2f (+/- %0.2f)" % (score.mean(), score.std() * 2))
+predicted = cross_val_predict(svm_lin, X[:, mask], Y, cv=cv)
+print("MSE: %0.2f" % mean_squared_error(Y, predicted))
