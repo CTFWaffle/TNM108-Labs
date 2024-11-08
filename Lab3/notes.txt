@@ -1,0 +1,126 @@
+- GaussNB{
+
+Pros & Cons (Naive Bayes):
+1. They are extremely fast for both training and prediction.
+2. They provide straightforward probabilistic prediction.
+3. They are often easily interpretable.
+4. They have few (if any) tunable parameters.
+5. Good choice as an initial baseline classification.
+
+Usage (NB):
+1. When the naive assumptions actually matches the data (rare in practice)
+2. For well-separated categories or high-dimensional data 
+and model complexity is less important.
+3. Usually very good when there is little or low similarity in the data.
+
+What it does:
+GNBC classifies data by looking at previous data,
+calculating a possibility that this new data point fits into a known class,
+using a predetermined assumption.
+(Assumption based classification)
+    6 steps of GaussNB:
+1. Assumption of Normal Distribution
+2. Training Phase
+3. Probability Calculation
+4. Class Prior Probability
+5. Posterior Probability
+6. Classification
+
+}
+
+- Face Completion with a multi-output Estimators{
+
+1. The program compares different generative models for
+the recreation of faces.
+2. Of all the provided methods Extra trees seems to provide the most
+accurate results with good image-quality and low noise.
+3. 
+    a.b.c. 
+    - max depth: provides sharpness to the image, 
+    the minor details and artifact count is better and lower respectively.
+    - max number of features: Accuracy the prediction,
+    the predicted facial expression and structure gets better.
+    d.e.f.
+    - max depth: provided more realism here,
+    for certain faces features appeared almost drawn on. While others
+    could be hard to distinguish from generated and true.
+    - max number of features: for an increased amount of features,
+    the accuracy of predicted facial expression and structure got noticieably
+    better.
+4. Implementation of Haar-like feature detection
+could improve the results of random forest by making
+the recreation more accurate thanks to the improved feature detection.
+Possibly increasing the impact of maximum features.
+
+}
+
+-Validation Metrics
+1. All scores seemingly improved
+Non-shuffled:
+Linear Regression
+mean R2: 0.20 (+/- 1.19)
+MSE: 34.54
+
+Ridge Regression
+mean R2: 0.26 (+/- 1.04)
+MSE: 33.91
+
+Lasso Regression
+mean R2: 0.26 (+/- 0.99)
+MSE: 34.01
+
+Decision Tree regression
+mean R2: -0.03 (+/- 1.73)
+MSE: 33.82
+
+Random Forest regression
+mean R2: 0.46 (+/- 0.92)
+MSE: 21.75
+
+Linear Support Vector Machine regression
+mean R2: 0.31 (+/- 1.10)
+MSE: 32.39
+
+Support Vector Machine regression rbf
+mean R2: -0.40 (+/- 0.77)
+MSE: 71.88
+
+K-Nearest Neighbors regression
+mean R2: -4.95 (+/- 25.12)
+MSE: 107.66
+
+Shuffled:
+Linear Regression
+mean R2: 0.70 (+/- 0.23)
+MSE: 23.81
+
+Ridge Regression
+mean R2: 0.70 (+/- 0.24)
+MSE: 23.99
+
+Lasso Regression
+mean R2: 0.69 (+/- 0.25)
+MSE: 25.06
+
+Decision Tree regression
+mean R2: 0.74 (+/- 0.29)
+MSE: 21.58
+
+Random Forest regression
+mean R2: 0.82 (+/- 0.21)
+MSE: 14.76
+
+Linear Support Vector Machine regression
+mean R2: 0.68 (+/- 0.29)
+MSE: 25.84
+
+Support Vector Machine regression rbf
+mean R2: 0.21 (+/- 0.27)
+MSE: 67.33
+
+K-Nearest Neighbors regression
+mean R2: 0.51 (+/- 0.23)
+MSE: 40.22
+
+2. 
+3. 
