@@ -159,4 +159,7 @@ MSE: 15.37
 Linear Support Vector Machine regression with RFE
 mean R2: 0.68 (+/- 0.25)
 MSE: 26.53
-3. 
+
+3. KNN performed the best overall but isn't optimal.
+By adding and comparing a decision tree algorithm to the other methods, it's clear that the tree outperforms the others by a large margin.
+This is due to its ability to handle non-linearity and more complex relationships between variables.
