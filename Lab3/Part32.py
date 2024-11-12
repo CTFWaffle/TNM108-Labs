@@ -79,9 +79,21 @@ print(pd.Series(map6).map(labels_counts))
 ###### Sista delen med jämförelse ######
 
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+
 
 method = 'decision tree'
 clf = DecisionTreeClassifier()
+y_pred = cross_val_predict(clf, X, Y, cv=cv)
+CalcMeasures(method, y_pred, Y)
+
+method = 'random forest'
+clf = RandomForestClassifier()
+y_pred = cross_val_predict(clf, X, Y, cv=cv)
+CalcMeasures(method, y_pred, Y)
+
+method = 'SVC rbf'
+clf = svm.SVC(kernel='rbf')
 y_pred = cross_val_predict(clf, X, Y, cv=cv)
 CalcMeasures(method, y_pred, Y)
 
