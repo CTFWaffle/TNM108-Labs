@@ -1,0 +1,70 @@
+▷ To pass Part 1:
+Explain to the lab assistant:
+(i) what is the TF-IDF measure
+TF-IDF measure term frequencies among either one or multiple document, 
+normalizing their values so that longer documents won't have a higher
+prio over shorter documents. Some words are also weigthed to avoid,
+some common words getting unnecessarily high scores.
+(ii) how to use TF-IDF for:
+– document similarity
+Cosine similarity
+– classify text
+Adding NB 
+
+▷ To pass Part 2:
+Write a text classification pipeline to classify movie reviews as either positive or negative.
+Find a good set of parameters for the pipeline you have created by using grid search.
+Show your result to the lab assistant.
+
+Original settings:
+0.91
+clf__alpha: 0.001
+tfidf__use_idf: True
+vect__ngram_range: (1, 2)
+
+Best result:
+0.9525
+clf__alpha: 0.02
+tfidf__smooth_idf: True
+tfidf__use_idf: False
+vect__binary: True
+vect__max_df: 0.9
+vect__min_df: 1
+vect__ngram_range: (1, 2)
+vect__stop_words: 'english'
+
+▷ To pass Part 3:
+(i) Explain the TextRank algorithm and how it works to the lab assistant.
+ - Börja med att splita dokument till meningar.
+ - Cosine similarity.
+ - TextRank, används för att rangårdna meningarna. Väljer sedan de högst
+    rankade som summary.
+(ii) Show your lab assistant some summaries you created; and discuss the quality of the
+summaries
+ - Summaries seem kinda random, but they do sort of summarize the contents of the longer text.
+
+Keywords 'Murica:
+ russian
+said
+air
+
+Summary 'Murica:
+ The US embassy recommends US citizens be prepared to immediately shelter in the event an air alert is announced.” The Russian foreign minister, Sergei Lavrov, said Moscow would respond “appropriately” a day after Ukraine fired six of the newly approved US-made Atacms missiles into an ammunition warehouse in the south-western Bryansk region.
+
+
+Keywords Twitter:
+ trigger
+triggered
+american
+americans
+starring
+star
+
+Summary Twitter:
+ (Trigger Warning doesn’t go so far as to explicitly endorse the American characters’ actions in the scene, which amount to a war crime, but the film instead just kind of breezes past the issue.) Proclamations of a boycott should of course be taken with a grain of salt: grousing on social media doesn’t always equate to actual widespread outrage.
+Underneath it all, Trigger Warning is simply too messy and poorly crafted a film to convey any kind of coherent political ethos.
+
+
+
+(like; does your abstract make any sense? can you create a summary that looks like an
+abstract from a news article? can you summarize product opinions from customers etc).
